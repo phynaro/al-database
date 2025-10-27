@@ -206,7 +206,7 @@ BEGIN
                 FROM [ParsedData]
             )
             
-            -- Insert records with both OldValue and NewValue not null
+            -- Insert records with NewValue not null (OldValue can be NULL for writes without previous value)
             INSERT INTO [dbo].[DiagnosticStaging] ([TimeStmp], [Tag], [OldValue], [NewValue], [Location], [UserID])
             SELECT 
                 [TimeStmp],
@@ -216,8 +216,7 @@ BEGIN
                 [Location],
                 [UserID]
             FROM [ConvertedData]
-            WHERE [OldValue] IS NOT NULL 
-              AND [NewValue] IS NOT NULL;
+            WHERE [NewValue] IS NOT NULL;
             
             SET @RowsInserted = @RowsInserted + @@ROWCOUNT;
             
