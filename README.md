@@ -41,10 +41,10 @@ Complete ETL solution to extract "Successful Write" operations from Diagnostic t
 ```
 al-database/
 ├── scripts/           # Deployment scripts
-│   ├── 01_alter_etl_control.sql
+│   ├── 00_create_complete_etl.sql
 │   ├── 02_create_sp_etl_v2.sql
-│   ├── 03_initialize_etl_control.sql
-│   └── 04_create_sql_agent_job.sql
+│   ├── sp_Sync_ETL_Control_Locations.sql
+│   └── sp_ETL_Complete.sql
 ├── test/             # Test scripts
 │   ├── test_etl_execution.sql
 │   └── manual_test_etl.sql
@@ -83,6 +83,7 @@ SELECT TOP 10 * FROM DiagnosticStaging ORDER BY TimeStmp DESC;
 
 - **Complete Guide**: `helps/ETL_Implementation_Guide.md`
 - **Auto Location Handling**: `helps/Auto_Location_Handling.md` - How new SCADA stations are automatically tracked
+- **Location Sync Utility**: `helps/Location_Sync_Utility.md` - Sync missing locations to ETL_Control
 - **Deployment**: `DEPLOYMENT_INSTRUCTIONS.md`
 - **Manual Test**: `test/manual_test_etl.sql`
 
