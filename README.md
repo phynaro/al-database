@@ -30,6 +30,7 @@ Complete ETL solution to extract "Successful Write" operations from Diagnostic t
 ## Key Features
 
 ✅ **Per-Location Tracking** - Handles multiple SCADA stations with separate RecordID sequences
+✅ **Auto-Discovery** - Automatically detects and tracks new SCADA locations without manual configuration
 ✅ **Success Only** - Extracts only "Successful Write" operations (MessageText LIKE 'Write%to%')
 ✅ **Automatic Scheduling** - Runs every 5 minutes via SQL Server Agent
 ✅ **Data Conversion** - Converts True/False to 1.0/0.0, handles numeric values
@@ -81,6 +82,7 @@ SELECT TOP 10 * FROM DiagnosticStaging ORDER BY TimeStmp DESC;
 ## Documentation
 
 - **Complete Guide**: `helps/ETL_Implementation_Guide.md`
+- **Auto Location Handling**: `helps/Auto_Location_Handling.md` - How new SCADA stations are automatically tracked
 - **Deployment**: `DEPLOYMENT_INSTRUCTIONS.md`
 - **Manual Test**: `test/manual_test_etl.sql`
 
